@@ -1,2 +1,2 @@
-# ala-ufrj-2020.2
-Codes made for the Algorithmic Linear Algebra course at UFRJ during 2020.2
+# Algorithmic Linear Algebra
+This repository contains the laboratory exercises (Made in Maxima) and the written assignments for the semester
