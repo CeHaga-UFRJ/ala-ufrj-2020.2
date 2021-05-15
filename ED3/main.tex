@@ -1,0 +1,538 @@
+\documentclass{homework}
+
+\title{Estudo Dirigido 3}
+\author{Carlos Bravo\\ 119136241}
+
+\begin{document}
+
+\maketitle
+
+\exercise*
+(a) Como $v$ tem que ser escrito como combinação de G, podemos escrever o seguinte sistema, com $x_k$ sendo o coeficiente do vetor $k$ de G:
+\[
+\begin{bmatrix}
+4 & 12 & 12\\
+4 & 8 & 12\\
+2 & 2 & 9\\
+4 & 8 & 9
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2\\
+x_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+88\\
+76\\
+44\\
+64
+\end{bmatrix}
+\]
+Reescrevendo como uma matriz aumentada e resolvendo o sistema:
+\[
+\left[ \begin{array}{ccc|c}
+    4 & 12 & 12 & 88\\
+    4 & 8 & 12 & 76\\
+    2 & 2 & 9 & 44\\
+    4 & 8 & 9 & 64
+\end{array} \right] \xrightarrow{L_{1,2}(-1)}
+\left[ \begin{array}{ccc|c}
+    4 & 12 & 12 & 88\\
+    0 & -4 & 0 & -12\\
+    2 & 2 & 9 & 44\\
+    4 & 8 & 9 & 64
+\end{array} \right] \xrightarrow{L_{1,3}(-\frac{1}{2})}
+\]
+\[
+\left[ \begin{array}{ccc|c}
+    4 & 12 & 12 & 88\\
+    0 & -4 & 0 & -12\\
+    0 & -4 & 3 & 0\\
+    4 & 8 & 9 & 64
+\end{array} \right] \xrightarrow{L_{1,4}(-1)}
+\left[ \begin{array}{ccc|c}
+    4 & 12 & 12 & 88\\
+    0 & -4 & 0 & -12\\
+    0 & -4 & 3 & 0\\
+    0 & -4 & -3 & -24
+\end{array} \right] \xrightarrow{L_{2,3}(-1)}
+\]
+\[
+\left[ \begin{array}{ccc|c}
+    4 & 12 & 12 & 88\\
+    0 & -4 & 0 & -12\\
+    0 & 0 & 3 & 12\\
+    0 & -4 & -3 & -24
+\end{array} \right] \xrightarrow{L_{2,4}(-1)}
+\left[ \begin{array}{ccc|c}
+    4 & 12 & 12 & 88\\
+    0 & -4 & 0 & -12\\
+    0 & 0 & 3 & 12\\
+    0 & 0 & -3 & -12
+\end{array} \right] \xrightarrow{L_{3,4}(1)}
+\]
+\[
+\left[ \begin{array}{ccc|c}
+    4 & 12 & 12 & 88\\
+    0 & -4 & 0 & -12\\
+    0 & 0 & 3 & 12\\
+    0 & 0 & 0 & 0
+\end{array} \right]
+\]
+Dessa última matriz tiramos as seguintes equações:
+\[x_3 = 4\]
+\[x_2 = 3\]
+\[x_1 = 1\]
+Então:
+\[v = G_1 + 3G_2 + 4G_3\]
+
+(b) Seguindo o mesmo procedimento de (a):
+\[
+\left[ \begin{array}{ccc|c}
+    -4 & -8 & 12 & -16\\
+    4 & 5 & -12 & 28\\
+    -4 & -9 & 12 & -12\\
+    -3 & -9 & 9 & 0
+\end{array} \right] \xrightarrow{L_{1,2}(1)}
+\left[ \begin{array}{ccc|c}
+    -4 & -8 & 12 & -16\\
+    0 & -3 & 0 & 12\\
+    -4 & -9 & 12 & -12\\
+    -3 & -9 & 9 & 0
+\end{array} \right] \xrightarrow{L_{1,3}(-1)}
+\]
+\[
+\left[ \begin{array}{ccc|c}
+    -4 & -8 & 12 & -16\\
+    0 & -3 & 0 & 12\\
+    0 & -1 & 0 & 4\\
+    -3 & -9 & 9 & 0
+\end{array} \right] \xrightarrow{L_{1,4}(-\frac{3}{4})}
+\left[ \begin{array}{ccc|c}
+    -4 & -8 & 12 & -16\\
+    0 & -3 & 0 & 12\\
+    0 & -1 & 0 & 4\\
+    0 & -3 & 0 & 12
+\end{array} \right] \xrightarrow{L_{2,3}(-\frac{1}{3})}
+\]
+\[
+\left[ \begin{array}{ccc|c}
+    -4 & -8 & 12 & -16\\
+    0 & -3 & 0 & 12\\
+    0 & 0 & 0 & 0\\
+    0 & -3 & 0 & 12
+\end{array} \right] \xrightarrow{L_{2,4}(-1)}
+\left[ \begin{array}{ccc|c}
+    -4 & -8 & 12 & -16\\
+    0 & -3 & 0 & 12\\
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0
+\end{array} \right]
+\]
+Substituindo os valores obtemos:
+\[x_2 = -4\]
+\[x_1 = 12 +3x_3\]
+Disso tiramos que:
+\[v = (12+3k)G_1 - 4G_2 + kG_3, \forall k \in \R\]
+Para escrever uma combinação linear específica, podemos escolher um k qualquer, como $k=0$, então:
+\[v = 12G_1 - 4G_2\]
+
+\exercise*
+Escrevendo na forma de matriz aumentada e realizando a eliminação:
+\[
+\left[ \begin{array}{cc|c}
+    3 & -1 & 4\\
+    1 & 2 & 3\\
+    c & 1 & 1
+\end{array} \right] \xrightarrow{L_{1,2}(-\frac{1}{3})}
+\left[ \begin{array}{cc|c}
+    3 & -1 & 4\\
+    0 & \frac{7}{3} & \frac{5}{3}\\
+    c & 1 & 1
+\end{array} \right]
+\]
+Como tem 2 variáveis, vamos resolver o sistema usando apenas as duas primeiras equações. Dela tira-se os resultados:
+\[x_2 = \frac{5}{7}\]
+\[x_1 = \frac{11}{7}\]
+Podemos então reescrever a última linha como:
+\[c\frac{11}{7} + \frac{5}{7} = 1\]
+\[c = \frac{2}{11}\]
+A variável $c$ precisa ter esse valor senão a combinação obtida pelas linhas anteriores não concordaria.
+
+\exercise
+(a) Vamos começar simplificando as equações para ter uma parametrização. É possível reescrever da seguinte forma de matriz aumentada:
+\[
+\left[ \begin{array}{cccc|c}
+1 & 4 & -2 & 0 & 0\\
+8 & 36 & -22 & -8 & 0\\
+-2 & 10 & 7 & 4 & 0\\
+-29 & -136 & 88 & 40 & 0
+\end{array} \right] \xrightarrow{L_{1,2}(-8)}
+\left[ \begin{array}{cccc|c}
+1 & 4 & -2 & 0 & 0\\
+0 & 4 & -6 & -8 & 0\\
+-2 & -10 & 7 & 4 & 0\\
+-29 & -136 & 88 & 40 & 0
+\end{array} \right] \xrightarrow{L_{1,3}(2)}
+\]
+\[
+\left[ \begin{array}{cccc|c}
+1 & 4 & -2 & 0 & 0\\
+0 & 4 & -6 & -8 & 0\\
+0 & -2 & 3 & 4 & 0\\
+-29 & -136 & 88 & 40 & 0
+\end{array} \right] \xrightarrow{L_{1,4}(29)}
+\left[ \begin{array}{cccc|c}
+1 & 4 & -2 & 0 & 0\\
+0 & 4 & -6 & -8 & 0\\
+0 & -2 & 3 & 4 & 0\\
+0 & -20 & 30 & 40 & 0
+\end{array} \right] \xrightarrow{L_{2,3}(-\frac{1}{2})}
+\]
+\[
+\left[ \begin{array}{cccc|c}
+1 & 4 & -2 & 0 & 0\\
+0 & 4 & -6 & -8 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & -20 & 30 & 40 & 0
+\end{array} \right] \xrightarrow{L_{2,4}(5)}
+\left[ \begin{array}{cccc|c}
+1 & 4 & -2 & 0 & 0\\
+0 & 4 & -6 & -8 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0
+\end{array} \right]
+\]
+Colocando as variáveis em função de $x_2$ e $x_3$ obtemos:
+\[x_1 = -4x_2 + 2x_3\]
+\[x_4 = \frac{1}{2}x_2 - \frac{3}{4}x_3\]
+Podemos reescrever os parâmetros como:
+\[(x_1,x_2,x_3,x_4) = (-4x_2+2x_3,x_2,x_3,\frac{1}{2}x_2-\frac{3}{4}x_3) = x_2(-4,1,0,\frac{1}{4}) + x_3(2,0,1,-\frac{3}{4})\]
+Então o gerador do subespaço é:
+\[\langle(-4,1,0,\frac{1}{2}),(2,0,1,-\frac{3}{4})\rangle\]
+
+(b) Seguindo o mesmo raciocínio da (a):
+\[
+\left[ \begin{array}{cccc|c}
+-6 & 4 & -4 & 6 & 0\\
+6 & -4 & 4 & -6 & 0\\
+12 & -8 & 8 & -12 & 0\\
+3 & -2 & 2 & -3 & 0
+\end{array} \right]
+\]
+No entanto, podemos parar por aqui, pois é possível perceber que todas as linhas são múltiplos de $(3x_1,-2x_2,2x_3,-3x_4)$, então todas vão zerar exceto por essa após realizar o escalonamento (Basta realizar $[T_{1,4},L_{1,2}(-2),L_{1,3}(-4),L_{1,4}(2)]$). Colocando $x_1$ em função do resto obtemos:
+\[x_1 = \frac{2}{3}x_2 - \frac{2}{3}x_3 + \frac{3}{3}x_4\]
+\[\langle(\frac{2}{3},1,0,0),(-\frac{2}{3},0,1,0),(1,0,0,1)\rangle\]
+
+
+\exercise*
+(a) Para simplificar basta passar os vetores para uma matriz e escalonar:
+\[
+\begin{bmatrix}
+-34 & -22 & 76 & 0\\
+8 & 5 & -18 & 0\\
+24 & 15 & -58 & 0\\
+2 & 2 & -4 & 0
+\end{bmatrix} \xrightarrow{T_{1,4}}
+\begin{bmatrix}
+2 & 2 & -4 & 0 \\
+8 & 5 & -18 & 0\\
+24 & 15 & -58 & 0\\
+-34 & -22 & 76 & 0
+\end{bmatrix} \xrightarrow{L_{1,2}(-4)}
+\]
+\[
+\begin{bmatrix}
+2 & 2 & -4 & 0 \\
+0 & -3 & -2 & 0\\
+24 & 15 & -58 & 0\\
+-34 & -22 & 76 & 0
+\end{bmatrix} \xrightarrow{L_{1,3}(-12)}
+\begin{bmatrix}
+2 & 2 & -4 & 0 \\
+0 & -3 & -2 & 0\\
+0 & -9 & -10 & 0\\
+-34 & -22 & 76 & 0
+\end{bmatrix} \xrightarrow{L_{1,4}(17)}
+\]
+\[
+\begin{bmatrix}
+2 & 2 & -4 & 0 \\
+0 & -3 & -2 & 0\\
+0 & -9 & -10 & 0\\
+0 & 12 & 8 & 0
+\end{bmatrix} \xrightarrow{L_{2,3}(-3)}
+\begin{bmatrix}
+2 & 2 & -4 & 0 \\
+0 & -3 & -2 & 0\\
+0 & 0 & -4 & 0\\
+0 & 12 & 8 & 0
+\end{bmatrix} \xrightarrow{L_{2,4}(4)}
+\]
+\[
+\begin{bmatrix}
+2 & 2 & -4 & 0 \\
+0 & -3 & -2 & 0\\
+0 & 0 & -4 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\]
+Então o conjunto gerador simplificado é:
+\[\langle(2,2,-4,0),(0,-3,-2,0),(0,0,-4,0)\rangle\]
+
+(b) Seguindo o mesmo raciocínio:
+\[
+\begin{bmatrix}
+2 & 0 & -6 & -23\\
+-2 & 0 & 7 & 9\\
+0 & 0 & 0 & -5\\
+1 & 0 & -3 & -4\\
+-3 & 0 & 10 & 38
+\end{bmatrix} \xrightarrow{L_{1,2}(1)}
+\begin{bmatrix}
+2 & 0 & -6 & -23\\
+0 & 0 & 1 & -14\\
+0 & 0 & 0 & -5\\
+1 & 0 & -3 & -4\\
+-3 & 0 & 10 & 38
+\end{bmatrix} \xrightarrow{L_{1,4}(-\frac{1}{2})}
+\]
+\[
+\begin{bmatrix}
+2 & 0 & -6 & -23\\
+0 & 0 & 1 & -14\\
+0 & 0 & 0 & -5\\
+0 & 0 & 0 & \frac{15}{2}\\
+-3 & 0 & 10 & 38
+\end{bmatrix} \xrightarrow{L_{1,5}(\frac{3}{2})}
+\begin{bmatrix}
+2 & 0 & -6 & -23\\
+0 & 0 & 1 & -14\\
+0 & 0 & 0 & -5\\
+0 & 0 & 0 & \frac{15}{2}\\
+0 & 0 & 1 & \frac{7}{2}
+\end{bmatrix} \xrightarrow{L_{3,4}(\frac{3}{2})}
+\]
+\[
+\begin{bmatrix}
+2 & 0 & -6 & -23\\
+0 & 0 & 1 & -14\\
+0 & 0 & 0 & -5\\
+0 & 0 & 0 & 0\\
+0 & 0 & 1 & \frac{7}{2}
+\end{bmatrix} \xrightarrow{L_{2,5}(-1)}
+\begin{bmatrix}
+2 & 0 & -6 & -23\\
+0 & 0 & 1 & -14\\
+0 & 0 & 0 & -5\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & \frac{35}{2}
+\end{bmatrix} \xrightarrow{L_{3,5}(\frac{7}{2})}
+\]
+\[
+\begin{bmatrix}
+2 & 0 & -6 & -23\\
+0 & 0 & 1 & -14\\
+0 & 0 & 0 & -5\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\]
+Então o conjunto gerador simplificado é:
+\[\langle(2,0,-6,-23),(0,0,1,-14),(0,0,0,-5)\rangle\]
+
+\exercise*
+(a) Para saber se é linearmente independente, a única solução de X da equação
+\[\begin{bmatrix}
+2 & 0 & 0\\
+-3 & 0 & 0\\
+3 & -2 & 7\\
+-2 & 0 & 3
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2\\
+x_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+0\\
+0
+\end{bmatrix}\]
+precisa ser o vetor nulo, sendo cada $x$ o coeficiente de um vetor da base. Se houver outra solução para o vetor X, será linearmente dependente. Resolvendo através de eliminação gaussiana:
+\[
+\left[ \begin{array}{ccc|c}
+2 & 0 & 0 & 0\\
+-3 & 0 & 0 & 0\\
+3 & -2 & 7 & 0\\
+-2 & 0 & 3 & 0
+\end{array} \right] \xrightarrow{L_{1,2}(\frac{3}{2})}
+\left[ \begin{array}{ccc|c}
+2 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+3 & -2 & 7 & 0\\
+-2 & 0 & 3 & 0
+\end{array} \right] \xrightarrow{L_{1,3}(-\frac{3}{2})}
+\]
+\[
+\left[ \begin{array}{ccc|c}
+2 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & -2 & 7 & 0\\
+-2 & 0 & 3 & 0
+\end{array} \right] \xrightarrow{L_{1,4}(1)}
+\left[ \begin{array}{ccc|c}
+2 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & -2 & 7 & 0\\
+0 & 0 & 3 & 0
+\end{array} \right]
+\]
+Substituindo as variáveis obtemos:
+\[x_3 = 0\]
+\[x_2 = 0\]
+\[x_1 = 0\]
+Como a solução é com todos os coeficientes sendo 0, o subconjunto é linearmente independente.
+
+(b) Seguindo o mesmo raciocínio:
+\[
+\left[ \begin{array}{ccc|c}
+1 & -4 & -8 & 0\\
+1 & -1 & -2 & 0\\
+-1 & 2 & 4 & 0\\
+2 & -10 & -20 & 0
+\end{array} \right] \xrightarrow{L_{1,2}(-1)}
+\left[ \begin{array}{ccc|c}
+1 & -4 & -8 & 0\\
+0 & 3 & 6 & 0\\
+-1 & 2 & 4 & 0\\
+2 & -10 & -20 & 0
+\end{array} \right] \xrightarrow{L_{1,3}(1)}
+\]
+\[
+\left[ \begin{array}{ccc|c}
+1 & -4 & -8 & 0\\
+0 & 3 & 6 & 0\\
+0 & -2 & -4 & 0\\
+2 & -10 & -20 & 0
+\end{array} \right] \xrightarrow{L_{1,4}(-2)}
+\left[ \begin{array}{ccc|c}
+1 & -4 & -8 & 0\\
+0 & 3 & 6 & 0\\
+0 & -2 & -4 & 0\\
+0 & -2 & -4 & 0
+\end{array} \right] \xrightarrow{L_{2,3}(\frac{2}{3})}
+\]
+\[
+\left[ \begin{array}{ccc|c}
+1 & -4 & -8 & 0\\
+0 & 3 & 6 & 0\\
+0 & 0 & 0 & 0\\
+0 & -2 & -4 & 0
+\end{array} \right] \xrightarrow{L_{2,4}(\frac{2}{3})}
+\left[ \begin{array}{ccc|c}
+1 & -4 & -8 & 0\\
+0 & 3 & 6 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{array} \right]
+\]
+Como há uma solução, mesmo que indeterminada, então o subconjunto é linearmente dependente.
+
+\exercise*
+Como os subconjuntos da questão 3 já foram simplificados, não é necessário escalonar novamente.
+
+(a)
+\[\{(-4,1,0,\frac{1}{2}),(2,0,1,-\frac{3}{4})\}\]
+Não tem como ser linearmente dependente pois para as segundas coordenadas igualarem, é necessário que multiplique por 0, o que é diferente dos outros valores. Como não há combinação linear entre eles, o subconjunto é linearmente independente, então é uma base. Sua dimensão é 2.
+
+(b)
+\[\{(\frac{2}{3},1,0,0),(-\frac{2}{3},0,1,0),(1,0,0,1)\}\]
+Seguindo o mesmo raciocínio da questão anterior, para igualar a segunda, terceira e quarta coordenada dos vetores é necessário multiplicar por 0, então também não há combinação linear. Logo, por também ser linearmente independente, é uma base. Sua dimensão é 3.
+
+\exercise*
+Os subconjuntos da questão 4 também já foram simplificados, então não há a necessidade de escalonar.
+
+(a)
+\[\{(2,2,-4,0),(0,-3,-2,0),(0,0,-4,0)\}\]
+Se multiplicarmos pelo vetor X (para encontrar as combinações) e igualamos ao vetor nulo, é possível ver por substituição que a única solução é o próprio vetor nulo, então o subconjunto é linearmente independente. Sua dimensão é 3.
+
+(b)
+\[\{(2,0,-6,-23),(0,0,1,-14),(0,0,0,-5)\}\]
+Podemos seguir o mesmo raciocínio e por substituição também chegamos à conclusão que é linearmente independente. Sua dimensão também é 3.
+
+\exercise*
+(a) Como os vetores já formam uma base para $\R^4$, adicionar mais vetores que também formam não mudará o resultado, então podemos adicionar a base canônica e escalonar. Ficando assim com a seguinte matriz:
+\[
+\begin{bmatrix}
+2 & 0 & 0 & 1 & 0 & 0 & 0 \\
+-3 & 0 & 0 & 0 & 1 & 0 & 0\\
+3 & -2 & 7 & 0 & 0 & 1 & 0\\
+-2 & 0 & 3 & 0 & 0 & 0 & 1
+\end{bmatrix} \xrightarrow{L_{1,2}(\frac{3}{2})}
+\begin{bmatrix}
+2 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & \frac{3}{2} & 1 & 0 & 0\\
+3 & -2 & 7 & 0 & 0 & 1 & 0\\
+-2 & 0 & 3 & 0 & 0 & 0 & 1
+\end{bmatrix} \xrightarrow{L_{1,3}(-\frac{3}{2})}
+\]
+\[
+\begin{bmatrix}
+2 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & \frac{3}{2} & 1 & 0 & 0\\
+0 & -2 & 7 & -\frac{3}{2} & 0 & 1 & 0\\
+-2 & 0 & 3 & 0 & 0 & 0 & 1
+\end{bmatrix} \xrightarrow{L_{1,4}(1)}
+\begin{bmatrix}
+2 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & \frac{3}{2} & 1 & 0 & 0\\
+0 & -2 & 7 & -\frac{3}{2} & 0 & 1 & 0\\
+0 & 0 & 3 & 1 & 0 & 0 & 1
+\end{bmatrix} \xrightarrow{T_{2,3}}
+\]
+\[
+\begin{bmatrix}
+2 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & -2 & 7 & -\frac{3}{2} & 0 & 1 & 0\\
+0 & 0 & 0 & \frac{3}{2} & 1 & 0 & 0\\
+0 & 0 & 3 & 1 & 0 & 0 & 1
+\end{bmatrix} \xrightarrow{T_{3,4}}
+\begin{bmatrix}
+2 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & -2 & 7 & -\frac{3}{2} & 0 & 1 & 0\\
+0 & 0 & 3 & 1 & 0 & 0 & 1\\
+0 & 0 & 0 & \frac{3}{2} & 1 & 0 & 0
+\end{bmatrix}
+\]
+A partir dos pivots percebemos que as 4 primeiras colunas fazem parte da solução, então podemos escrever a base como os 4 primeiros vetores da matriz aumentada:
+\[\{(2,-3,3,-2),(0,0,-2,0),(0,0,7,3),(1,0,0,0)\}\]
+
+(b) O subconjunto não é linearmente independente, o que impossibilita de poder completar. 
+
+\exercise*
+(a) Para ser um subespaço é necessário provar as 2 propriedades, da soma entre vetores e da multiplicação por um escalar. Começando pela soma, se escolhermos 2 vetores do conjunto C, com $a=0$ e $a=1$ respectivamente, obtemos os vetores:
+\[c_0 = v_0\]
+\[c_1 = w_0\]
+No entanto, se calcularmos $c_0 + c_1$, obtemos o resultado $v_0 + w_0$, que não faz parte do conjunto C. Para que faça parte, precisa existir algum $a$ tal que :
+\[(1-a)v_0 + aw_0 = v_0 + w_0\]
+O que implica em:
+\[\begin{cases}
+1-a = 1\\
+a = 1
+\end{cases}\]
+Que é impossível. Como falhou já na primeira propriedade, C não é subespaço. $\blacksquare$
+
+(b) Para provar temos que provar as mesmas 2 propriedades. Dessa vez começando pela multiplicação. Implícito da multiplicação, temos que o vetor nulo precisa fazer parte do subespaço, então tem que existir algum $a$ e $u_0$ tal que $(1-a)v_0 + aw_0 + u_0 = 0$.
+
+Para zerar o $w_0$ podemos assumir $a=0$, dessa forma obtemos a equação $v_0 + u_0 = 0$, então $u_0 = -v_0$, então o conjunto pode ser simplificado para: $(1-a)v_0 + aw_0 - v_0 = aw_0 - av_0$. Multiplicando por um escalar k, $kaw_0 - kav_0$ faz parte do conjunto, pois podemos assumir $a_2 = ka$. Se $u_0 = -v_0$ a multiplicação está provada para qualquer $a$ e o vetor nulo faz parte do conjunto, aparecendo quando $a=0$.
+
+Mantendo o mesmo valor, provaremos a soma para $a_0$ e $a_1$ genéricos. Depois, calcularemos o resultado da seguinte soma para os coeficientes genéricos e verificar se mantém o mesmo formato:
+\[a_0w_0 - a_0v_0 + a_1w_0 - a_1v_0 = (a_0+a_1)w_0 - (a_0+a_1)v_0\]
+Se assumirmos $a_2 = a_0+a_1$, obtemos um vetor no formato de S. Como foram satisfeitas as 2 propriedades para S, é um subespaço. $\blacksquare$
+
+(c) Podemos reescrever $aw_0 - av_0$ como $a(w_0-v_0)$. Isso significa que o subespaço pode ser reescrito como um vetor $x = w_0-v_0$ multiplicado por um escalar, logo, todas as combinações lineares de $x$. Como a base é formada por um único vetor, sua dimensão é 1.
+
+\end{document}

@@ -1,0 +1,334 @@
+\documentclass{homework}
+
+\title{Estudo Dirigido 2}
+\author{Carlos Henrique Bravo Serrado\\ 119136241}
+
+\begin{document}
+
+\maketitle
+
+\exercise*
+Começando por A. Encontrar o polinômio característico:
+\[det \left( \frac{1}{10}
+\begin{bmatrix}
+-7 & 9\\
+9 & 17
+\end{bmatrix} - 
+\begin{bmatrix}
+t & 0\\
+0 & t
+\end{bmatrix}\right) = \left(-\frac{7}{10}-t\right)\left(\frac{17}{10}-t\right)-\frac{81}{100}
+= t^2 - t - 2 = (t+1)(t-2)\]
+Então, os autovalores de A são $2$ e $-1$. Para os autovetores associados a 2:
+\[\frac{1}{10}\begin{bmatrix}
+-27x_1 + 9x_2\\
+9x_1 - 3x_2
+\end{bmatrix} = \begin{bmatrix}
+0 \\
+0
+\end{bmatrix}\]
+\[x_2 = 3x_1\]
+Então, os resultados são da forma $(x_1,3x_1)$, ou, $x_1(1,3)$, com $x_1 \neq 0$. Como a matriz A é simétrica ($a_{12} = a_{21}$), podemos usar do Teorema Espectral que os autovetores são ortogonais, então o autovetor associado a -1 é $\lambda(-3,1)$, com $\lambda \neq 0$. Os autovetores da matriz A são:
+\[V_2 = \langle(1,3)\rangle\]
+\[V_{-1} = \langle(-3,1)\rangle\]
+
+Para B, primeiro encontrar o polinômio característico:
+\[det \left( \frac{1}{25}
+\begin{bmatrix}
+43 & -24\\
+-24 & 67
+\end{bmatrix} - 
+\begin{bmatrix}
+t & 0\\
+0 & t
+\end{bmatrix}\right) = \left(\frac{43}{25}-t\right)\left(\frac{57}{25}-t\right)-\frac{576}{625}
+= t^2 - 4t + 3 = (t-3)(t-1)\]
+Então B tem os autovalores $3$ e $1$. Para os autovetores associados a 1:
+\[\frac{1}{25}\begin{bmatrix}
+18x_1 -24x_2\\
+-24x_1 + 32x_2
+\end{bmatrix} = \begin{bmatrix}
+0 \\
+0
+\end{bmatrix}\]
+\[x_1 = \frac{4x_2}{3}\]
+Podemos aplicar o Teorema Espectral na matrix B por ela também ser simétrica, então os autovetores são:
+\[V_1 = \langle(4,3)\rangle\]
+\[V_3 = \langle(-3,4)\rangle\]
+
+\exercise*
+Queremos encontrar a matriz $(T)_\epsilon$. Como é um operador autoadjunto, $a_{12} = a_{21}$, então o operador possui o seguinte formato:
+\[(T)_\epsilon = \begin{bmatrix}
+a & b\\
+b & d
+\end{bmatrix}\]
+Como os autovalores são 2 e 3, eles serão a solução do polinômio característico, que é calculado a partir do determinante da matrix:
+\[det\left(\begin{bmatrix}
+a-t & b\\
+b & d-t
+\end{bmatrix}\right) = (t-2)(t-3)\]
+\[(a-t)(d-t)-b^2 = (t-2)(t-3)\]
+\[t^2 + (-a-d)t + (ad-b^2) = t^2 -5t +6\]
+\[\begin{cases}
+a+d=5\\
+ad-b^2=6
+\end{cases}\]
+No entanto, temos 3 variáveis e 2 equações, precisa de mais uma. Para isso, podemos usar o fato que o vetor $(3,4)$ é o autovetor associado ao autovalor 2.
+\[\begin{bmatrix}
+a-2 & b\\
+b & d-2
+\end{bmatrix}
+\begin{bmatrix}
+3\\
+4
+\end{bmatrix} = 0\]
+\[\begin{cases}
+3a + 4b = 6\\
+3b + 4d = 8
+\end{cases}\]
+Disso tiramos que o operador $(T)_\epsilon$ é:
+\[\frac{1}{25}\begin{bmatrix}
+66 & -12\\
+-12 & 59
+\end{bmatrix}\]
+
+\exercise*
+Escolhendo 2 vetores ortogonais entre si, é possível fazer um triângulo retângulo. Como o operador é autoadjunto, há exatamente 2 autovetores e que são ortogonais entre si, então vamos encontrar esses autovetores e transformá-los em um triângulo isósceles, para manter o mesmo ângulo nas transformações:
+\[det\left(\frac{1}{13}\begin{bmatrix}
+-23-t & 24\\
+24 & -3-t
+\end{bmatrix}\right) = (t+\frac{23}{13})(t+\frac{3}{13})-\frac{576}{169} = t^2 + 2t - 3 = (t+3)(t-1)\]
+Então os autovalores são -3 e 1. Para encontrar o autovetor relacionado ao autovalor 1:
+\[\frac{1}{13}\begin{bmatrix}
+-36x_1 + 24x_2\\
+24x_1 -16x_2
+\end{bmatrix}\ = 0\]
+\[x_2 = \frac{3}{2}x_1\]
+Então $V_1 = \langle(2,3)\rangle$. Por ser autoadjunto, $V_{-3} = \langle(-3,2)\rangle$. Normalizando esses vetores:
+\[V_1 = \frac{1}{\sqrt{13}}\langle(2,3)\rangle\]
+\[V_{-3} = \frac{1}{\sqrt{13}}\langle(-3,2)\rangle\]
+
+Como o triângulo isósceles também é retângulo, os catetos serão iguais. Chamando os catetos de $a$ e a hipotenusa de $b$, temos as seguintes propriedades:
+\[2a^2 = b^2 \Rightarrow b = \sqrt{2}a\]
+\[2a + b = 9 \Rightarrow 2a + \sqrt{2}a = 9 \Rightarrow a = \frac{9}{2+\sqrt{2}} = \frac{9(\sqrt{2}-1)}{\sqrt{2}}\]
+
+
+Queremos então que os autovetores transformados tenham esse módulo, como o vetor original é multiplicado pelo autovalor, basta dividir esse módulo pelos autovalores. Sejam $u_1$ e $u_2$ os vetores que formam o triângulo retângulo.
+
+\[u_1 = \frac{9(\sqrt{2}-1)}{\sqrt{2}}\frac{1}{\sqrt{13}}(2,3) = \frac{9(\sqrt{2}-1)}{\sqrt{26}}(2,3)\]
+\[u_2 = \frac{9(\sqrt{2}-1)}{\sqrt{2}}\frac{1}{-3}\frac{1}{\sqrt{13}}(-3,2) = \frac{-3(\sqrt{2}-1)}{\sqrt{26}}(-3,2)\]
+
+
+
+\exercise*
+Como -1 é o autovalor associado ao autovetor (2,-1), podemos usar esse fato para encontrar os valores de $a$ e $b$.
+\[\begin{bmatrix}
+0-(-1) & b\\
+2 & a-(-1)
+\end{bmatrix}
+\begin{bmatrix}
+2\\
+-1
+\end{bmatrix} = 0\]
+Igualando, obtém-se o seguinte sistema:
+\[\begin{cases}
+2-b=0\\
+4-(a+1)=0
+\end{cases}\]
+\[b=2\]
+\[a=3\]
+Então a matriz é:
+\[\begin{bmatrix}
+0 & 2\\
+2 & 3
+\end{bmatrix}\]
+
+\exercise
+(a) 
+\[\left[\begin{array}{cccc|c}
+1 & -3 & 3 & -3 & 4\\
+2 & -5 & 2 & -5 & 8\\
+1 & -3 & 6 & -5 & 1\\
+-3 & 6 & 3 & 2 & 14
+\end{array}\right] \xrightarrow{L_{1,2}(-2)}
+\left[\begin{array}{cccc|c}
+1 & -3 & 3 & -3 & 4\\
+0 & 1 & -4 & 1 & 0\\
+1 & -3 & 6 & -5 & 1\\
+-3 & 6 & 3 & 2 & 14
+\end{array}\right] \xrightarrow{L_{1,3}(-1)}\]
+\[\left[\begin{array}{cccc|c}
+1 & -3 & 3 & -3 & 4\\
+0 & 1 & -4 & 1 & 0\\
+0 & 0 & 3 & -2 & -3\\
+-3 & 6 & 3 & 2 & 14
+\end{array}\right] \xrightarrow{L_{1,4}(3)}
+\left[\begin{array}{cccc|c}
+1 & -3 & 3 & -3 & 4\\
+0 & 1 & -4 & 1 & 0\\
+0 & 0 & 3 & -2 & -3\\
+0 & -3 & 12 & -7 & 26
+\end{array}\right] \xrightarrow{L_{2,4}(3)}
+\]
+\[\left[\begin{array}{cccc|c}
+1 & -3 & 3 & -3 & 4\\
+0 & 1 & -4 & 1 & 0\\
+0 & 0 & 3 & -2 & -3\\
+0 & 0 & 0 & -4 & 26
+\end{array}\right]
+\]
+Substituindo de baixo pra cima obtemos:
+\[x_4 = \frac{-13}{2}\]
+\[x_3 = \frac{-16}{3}\]
+\[x_2 = \frac{-89}{6}\]
+\[x_1 = -44\]
+
+
+(b)
+\[\left[\begin{array}{cccc|c}
+1 & -3 & -4 & -1 & -4\\
+2 & -4 & -6 & -4 & -4\\
+4 & -8 & -13 & -8 & -5\\
+-14 & 28 & 45 & 28 & 10
+\end{array}\right] \xrightarrow{L_{1,2}(-2)}
+\left[\begin{array}{cccc|c}
+1 & -3 & -4 & -1 & -4\\
+0 & 2 & 2 & -2 & 4\\
+4 & -8 & -13 & -8 & -5\\
+-14 & 28 & 45 & 28 & 10
+\end{array}\right] \xrightarrow{L_{1,3}(-4)}\]
+\[\left[\begin{array}{cccc|c}
+1 & -3 & -4 & -1 & -4\\
+0 & 2 & 2 & -2 & 4\\
+0 & 4 & 3 & -4 & 11\\
+-14 & 28 & 45 & 28 & 10
+\end{array}\right] \xrightarrow{L_{1,4}(14)}
+\left[\begin{array}{cccc|c}
+1 & -3 & -4 & -1 & -4\\
+0 & 2 & 2 & -2 & 4\\
+0 & 4 & 3 & -4 & 11\\
+0 & -14 & -11 & 14 & -46
+\end{array}\right] \xrightarrow{L_{2,3}(-2)}\]
+\[\left[\begin{array}{cccc|c}
+1 & -3 & -4 & -1 & -4\\
+0 & 2 & 2 & -2 & 4\\
+0 & 0 & -1 & 0 & 3\\
+0 & -14 & -11 & 14 & -46
+\end{array}\right] \xrightarrow{L_{2,4}(7)}
+\left[\begin{array}{cccc|c}
+1 & -3 & -4 & -1 & -4\\
+0 & 2 & 2 & -2 & 4\\
+0 & 0 & -1 & 0 & 3\\
+0 & 0 & 3 & 0 & -18
+\end{array}\right]\]
+As duas últimas equações entram em conflito, logo, não há soluções.
+
+\exercise
+(a) Transformando em uma matriz escada:
+
+\[\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+2 & -3 & 1 & 3 & 4\\
+-1 & 5 & k-4 & -4 & -3\\
+-4 & 8 & 3k-4 & k^2-k-5 & k-12
+\end{array}\right] \xrightarrow{L_{1,2}(-2)}
+\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+-1 & 5 & k-4 & -4 & -3\\
+-4 & 8 & 3k-4 & k^2-k-5 & k-12
+\end{array}\right] \xrightarrow{L_{1,3}(1)}\]
+\[\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+0 & 4 & k-4 & -3 & -1\\
+-4 & 8 & 3k-4 & k^2-k-5 & k-12
+\end{array}\right] \xrightarrow{L_{1,4}(4)}
+\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+0 & 4 & k-4 & -3 & -1\\
+0 & 4 & 3k-4 & k^2-k-1 & k-4
+\end{array}\right] \xrightarrow{L_{2,3}(4)}\]
+\[\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+0 & 0 & k & 1 & -1\\
+0 & 4 & 3k-4 & k^2-k-1 & k-4
+\end{array}\right] \xrightarrow{L_{2,4}(4)}
+\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+0 & 0 & k & 1 & -1\\
+0 & 0 & 3k & k^2-k+3 & k-4
+\end{array}\right] \xrightarrow{L_{3,4}(-3)}\]
+\[\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+0 & 0 & k & 1 & -1\\
+0 & 0 & 0 & k^2-k & k-1
+\end{array}\right]\]
+Se $k=0$ então $k^2-k=0$. Se isso acontecer, na última linha diz que a soma de todas as variáveis com coeficiente 0 dá o resultado -1, o que torna o sistema impossível.
+
+Se $k=1$, a última linha se torna nula, então o sistema fica indeterminado, pois a quantidade de linhas não nulas fica menor que o número de colunas de coeficientes.
+
+Então o sistema é:
+
+\begin{center}
+Indeterminado, se $k=1$\\
+Impossivel, se $k=0$\\
+Determinado, se $k\neq1$ e $k\neq0$
+\end{center}
+
+(b)
+\[\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+-3 & 2 & 1 & -2 & -6\\
+-3 & 1 & k+2 & 0 & -7\\
+4 & -6 & k+2 & k^2-k+7 & k+6
+\end{array}\right] \xrightarrow{L_{1,2}(3)}
+\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+-3 & 1 & k+2 & 0 & -7\\
+4 & -6 & k+2 & k^2-k+7 & k+6
+\end{array}\right] \xrightarrow{L_{1,3}(3)}\]
+\[\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+0 & -2 & k+2 & 3 & -1\\
+4 & -6 & k+2 & k^2-k+7 & k+6
+\end{array}\right] \xrightarrow{L_{1,4}(-4)}
+\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+0 & -2 & k+2 & 3 & -1\\
+0 & -2 & k+2 & k^2-k+3 & k-2
+\end{array}\right] \xrightarrow{L_{2,3}(-2)}\]
+\[\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+0 & 0 & k & 1 & -1\\
+0 & -2 & k+2 & k^2-k+3 & k-2
+\end{array}\right] \xrightarrow{L_{2,4}(-2)}
+\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+0 & 0 & k & 1 & -1\\
+0 & 0 & k & k^2-k+1 & k-2
+\end{array}\right] \xrightarrow{L_{3,4}(-1)}\]
+\[\left[\begin{array}{cccc|c}
+1 & -1 & 0 & 1 & 2\\
+0 & -1 & 1 & 1 & 0\\
+0 & 0 & k & 1 & -1\\
+0 & 0 & 0 & k^2-k & k-1
+\end{array}\right]\]
+Como essa matriz escada foi igual à da letra A, então a resposta é a mesma:
+
+\begin{center}
+Indeterminado, se $k=1$\\
+Impossivel, se $k=0$\\
+Determinado, se $k\neq1$ e $k\neq0$
+\end{center}
+
+\end{document}
