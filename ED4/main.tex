@@ -1,0 +1,253 @@
+\documentclass{homework}
+
+\title{Estudo Dirigido 4}
+\author{Carlos Bravo\\ 119136241}
+
+\begin{document}
+
+\maketitle
+
+\exercise*
+(a) Normalizando o primeiro vetor e adicionando à base obtemos:
+\[\beta'= \{\frac{1}{\sqrt{2}}(0,-1,0,1)\}\]
+Aplicando o algoritmo para encontrar os vetores remanescentes:
+\[w_2 = (-1,0,1,0) - \langle u_1|(-1,0,1,0)\rangle u_1 = (-1,0,1,0)\]
+\[u_2 = \frac{1}{\sqrt{2}}(-1,0,1,0)\]
+\[w_3 = (0,-1,1,-1) - \langle u_1|(0,-1,1,-1)\rangle u_1 - \langle u_2|(0,-1,1,-1)\rangle u_2 = \frac{1}{2}(1,-2,1,-2)\]
+\[u_3 = \frac{1}{\sqrt{10}}(1,-2,1,-2)\]
+\[\beta'= \{\frac{1}{\sqrt{2}}(0,-1,0,1),\frac{1}{\sqrt{2}}(-1,0,1,0),\frac{1}{\sqrt{10}}(1,-2,1,-2)\}\]
+
+(b) Normalizando o primeiro vetor e adicionando à base obtemos:
+\[\beta'= \{\frac{1}{\sqrt{6}}(1,2,0,-1)\}\]
+Aplicando o algoritmo para encontrar os vetores remanescentes:
+\[w_2 = (1,2,1,-2) - \langle u_1|(1,2,1,-2)\rangle u_1 = \frac{1}{6}(-1,-2,6,-5)\]
+\[u_2 = \frac{1}{\sqrt{66}}(-1,-2,6,-5)\]
+
+\[w_3 = (1,3,2,-4) - \langle u_1|(1,3,2,-4)\rangle u_1 - \langle u_2|(1,3,2,-4)\rangle u_2 = \frac{1}{11}(-5,1,-3,-3)\]
+\[u_3 = \frac{1}{2\sqrt{11}}(-5,1,-3,-3)\]
+
+\[w_4 = (-2,-2,1,-1) - \langle u_1|(-2,-2,1,-1)\rangle u_1 \]
+\[- \langle u_2|(-2,-2,1,-1)\rangle u_2 - \langle u_3|(-2,-2,1,-1)\rangle u_3 = (0,0,0,0)\]
+\[u_3 = (0,0,0,0)\]
+
+Como $u_3$ deu o vetor nulo, podemos ignorar, pois a origem faz parte de todas as bases por definição.
+
+\[\beta'= \{\frac{1}{\sqrt{6}}(1,2,0,-1),\frac{1}{\sqrt{66}}(-1,-2,6,-5),\frac{1}{2\sqrt{11}}(-5,1,-3,-3)\}\]
+
+\exercise*
+Para ser ortogonal a matriz transposta precisa ser igual à matriz inversa, então:
+\[
+\frac{1}{9}
+\begin{bmatrix}
+1 & 2 & -2\\
+a & 2 & 1\\
+b & 1 & c
+\end{bmatrix}
+\begin{bmatrix}
+1 & a & b\\
+2 & 2 & 1\\
+-2 & 1 & c
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\]
+Realizando a multiplicação, obtemos:
+\[
+\frac{1}{9}
+\begin{bmatrix}
+9 & a+2 & -2c+b+2\\
+a+2 & a^2+5 & c+ab+2\\
+-2c+b+2 & c+ab+2 & c^2+b^2+1
+\end{bmatrix}
+\]
+Podemos tirar o seguinte sistema disso:
+\[
+\begin{cases}
+(I) 9 = 9\\
+(II) a+2 = 0\\
+(III) -2c+b+2 = 0\\
+(IV) a^2+5=9\\
+(V) c+ab+2=0\\
+(VI) c^2+b^2+1=9
+\end{cases}
+\]
+Disso tiramos os seguintes resultados:
+\begin{itemize}
+    \item (I) O sistema é válido
+    \item (II) $a=-2$
+    \item (III) $b=2c-2 \xrightarrow{Usando (V)} b=2$
+    \item (IV) $a=\pm2$, mas por causa de (II), $a=-2$
+    \item (V) $c-2(2c-2)+2=0 \Rightarrow c=2$
+    \item (VI) Dessa equação sairiam dois valores para $b$ e $c$. No entanto, usando os valores fixos de (III) e (V), como eles batem, continua válido
+\end{itemize}
+Então tiramos os valores:
+\[a=-2\]
+\[b=2\]
+\[c=2\]
+
+\exercise*
+Começando pela prova "Se $(C^\perp)^\perp = C$, então $C$ é subespaço". Quando realizamos o complemento ortogonal, o conjunto resultante é um subespaço, pois satisfaz as propriedades:
+
+\begin{itemize}
+\item(I) Possuir o vetor nulo. O produto interno do vetor nulo com qualquer vetor resulta em 0, então pela definição entra em $C^\perp$.
+
+\item(II) Possui o vetor $\lambda v$ para todo $v$ no subespaço. Podemos reescrever o produto interno $\langle w|\lambda v\rangle$ como $\lambda \langle w|v \rangle$. Se $v$ entrar no conjunto, então qualquer múltiplo também entra.   
+
+\item(III) Possui o vetor $u+v$ se possuir $u$ e $v$. Podemos reescrever o produto interno $\langle w|u+v \rangle$ como $\langle w|u \rangle + \langle w|v \rangle$. Se $u$ e $v$ fazem parte do conjunto, então o produto interno deles dá 0, logo o produto da soma deles também dá 0.
+O que significa que $C$ é o que queremos descobrir, $C^\perp$ é subespaço e $(C^\perp)^\perp$ é subespaço. Como $C = (C^\perp)^\perp$, então $C$ é um subespaço. 
+\end{itemize}
+
+Agora provando o caminho contrário. Se $C$ for subespaço, pela propriedade de soma direta com o complemento ortogonal podemos afirmar que $\R^n = C \oplus C^\perp = C^\perp \oplus (C^\perp)^\perp$. Então $dim(\R ^ n) = dim(C \oplus C^\perp) = dim(C^\perp \oplus (C^\perp)^\perp) = n$. Igualando a segunda e terceira equação obtemos:
+\[dim(C \oplus C^\perp) = dim(C^\perp \oplus (C^\perp)^\perp)\]
+\[dim(C) + dim(C^\perp) = dim(C^\perp) + dim((C^\perp)^\perp)\]
+\[dim(C) = dim((C^\perp)^\perp)\]
+Então $C$ e $(C^\perp)^\perp$ possuem a mesma dimensão. No entanto, pela definição de complemento ortogonal, estão em $C^\perp$ todos os vetores ortogonais a $C$. Como em $(C^\perp)^\perp$ estão todos os vetores ortogonais ao complemento, temos que $C \subseteq (C^\perp)^\perp$, pois todos os vetores de $C$ vão reaparecer mais os que não fazem parte de $C$. Como é subconjunto e possuem a mesma dimensão, eles devem ser o mesmo subespaço. $\blacksquare$
+
+\exercise*
+O subespaço W possui o gerador $\langle(1,0,1,0),(0,1,0,1)\rangle$ pelas igualdades. Transformando isso numa matriz obtemos:
+\[\begin{bmatrix}
+1 & 0 & 1 & 0\\
+0 & 1 & 0 & 1
+\end{bmatrix}\]
+Para encontrar os subespaços complementares basta completar a matriz escada. Então a matriz completa fica nesse formato:
+\[
+\begin{bmatrix}
+1 & 0 & 1 & 0\\
+0 & 1 & 0 & 1\\
+0 & 0 & a_1 & a_2\\
+0 & 0 & 0 & a_3
+\end{bmatrix}
+\]
+Temos que $a_1,a_3 \neq 0$ e $a_2 \in \R$. Substituindo valores para obter dois subespaços complementares:
+\[W_1 = \{(0,0,1,0),(0,0,0,1)\}\]
+\[W_2 = \{(0,0,1,1),(0,0,0,1)\}\]
+
+\exercise*
+Como vamos usar os subespaços nas questões 5 e 6, encontrando os geradores dos subespaços e de seus complementos ortogonais:
+\[
+\left [ \begin{array}{cccc|c}
+1 & -1 & -1 & 0 & 0\\
+1 & 1 & 0 & -1 & 0\\
+5 & 1 & -2 & -3 & 0
+\end{array} \right ] \xrightarrow{Escalonando}
+\left [ \begin{array}{cccc|c}
+1 & -1 & -1 & 0 & 0\\
+0 & 2 & 1 & -1 & 0\\
+0 & 0 & 0 & 0 & 0
+\end{array} \right ]
+\]
+\[W_1 = \langle (1,1,0,2),(1,0,1,1)\rangle\]
+Para encontrar o complemento ortogonal, podemos usar a propriedade dos vetores possuírem produto interno igual a 0. Disso tiramos o sistema:
+\[
+\left [ \begin{array}{cccc|c}
+1 & 1 & 0 & 2 & 0\\
+1 & 0 & 1 & 1 & 0
+\end{array} \right ] \xrightarrow{Escalonando}
+\left [ \begin{array}{cccc|c}
+1 & 1 & 0 & 2 & 0\\
+0 & -1 & 1 & -1 & 0
+\end{array} \right ]
+\]
+Fazendo a substituição dos valores obtemos $x_2(-1,1,1,0)+x_4(-2,0,1,1)$.
+\[W_1^\perp = \langle(-1,1,1,0),(-2,0,1,1)\rangle\]
+$W_2$ temos do enunciado, mas pelo escalonamento é possível simplificar, e podemos encontrar seu complemento da mesma forma que o anterior:
+\[
+\left [ \begin{array}{cccc|c}
+1 & 0 & -1 & 1 & 0\\
+1 & -6 & 1 & -5 & 0\\
+1 & -9 & 2 & -8 & 0
+\end{array} \right ] \xrightarrow{Escalonando}
+\left [ \begin{array}{cccc|c}
+1 & 0 & -1 & 1 & 0\\
+0 & -6 & 2 & -6 & 0\\
+0 & 0 & 0 & 0 & 0
+\end{array} \right ]
+\]
+\[W_2 = \langle(1,0,-1,1),(0,3,-1,3)\rangle\]
+Fazendo a substituição de variáveis obtemos:
+\[W_2^\perp = \langle(3,1,3,0),(1,1,0,-1)\rangle\]
+
+Agora que temos os geradores podemos começar as questões:
+
+(a) Para encontrar um sistema homogêneo que possua $W_2$ como solução, podemos usar a propriedade de seu complemento ortogonal. O produto interno entre um vetor de $W_2$ e um de $W_2^\perp$ dá 0. Colocando vetores de $W_2$ como variáveis, é possível fazer um sistema homogêneo cuja solução são os mesmos.
+\[
+\begin{cases}
+\langle(3,1,3,0)|(x_1,x_2,x_3,x_4)\rangle = 3x_1 + x_2 + 3x_3 = 0\\
+\langle(1,1,0,-1)|(x_1,x_2,x_3,x_4)\rangle = x_1 + x_2 - x_4 = 0
+\end{cases}
+\]
+
+(b) O gerador encontrado não possui dependência lineares, pois é impossível encontrar uma combinação dos vetores que resulte em 0. Então a base é $\langle(3,1,3,0),(1,1,0,-1)\rangle$ e a dimensão é 2.
+
+(c) Para encontrar a base da intersecção, basta juntar os dois sistemas de equações. O sistema para $W_1$ temos do enunciado enquanto o sistema para $W_2$ foi encontrado na questão (a):
+\[
+\begin{bmatrix}
+1 & -1 & -1 & 0\\
+0 & 2 & 1 & -1\\
+3 & 1 & 3 & 0\\
+1 & 1 & 0 & -1
+\end{bmatrix} \xrightarrow{Escalonando}
+\begin{bmatrix}
+1 & -1 & -1 & 0\\
+0 & 2 & 1 & -1\\
+0 & 0 & 4 & 2\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\]
+Substituindo temos:
+\[x_4 = -2x_3\]
+\[2x_2 = -x_3 - 2x_3 \Rightarrow x_2 = -\frac{3x_3}{2}\]
+\[x_1 = -\frac{3x_3}{2} + x_3 = -\frac{x_3}{2}\]
+Então $W_1 \bigcap W_2 = \langle(1,3,-2,4)\rangle$.
+
+\exercise*
+
+(a) Já está simplificado pelo processo feito anteriormente, então a base é $\langle (1,1,0,2),(1,0,1,1)\rangle$ e sua dimensao é 2.
+
+(b) Para encontrar a base da soma de subespaços basta juntar suas bases e escalonar.
+\[
+\begin{bmatrix}
+1 & 1 & 0 & 2\\
+1 & 0 & 1 & 1\\
+1 & 0 & -1 & 1\\
+0 & 3 & -1 & 3
+\end{bmatrix} \xrightarrow{Escalonando}
+\begin{bmatrix}
+1 & 1 & 0 & 2\\
+0 & -1 & 1 & -1\\
+0 & 0 & 2 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\]
+Então $W_1 + W_2 = \langle(1,1,0,2),(0,-1,1,-1),(0,0,1,0)\rangle$ e sua dimensão é 3.
+
+(c) Realizando o mesmo procedimento mas com o complemento ortogonal de $W_1$:
+\[
+\begin{bmatrix}
+-1 & 1 & 1 & 0\\
+-2 & 0 & 1 & 1\\
+1 & 0 & -1 & 1\\
+0 & 3 & -1 & 3
+\end{bmatrix} \xrightarrow{Escalonando}
+\begin{bmatrix}
+-1 & 1 & 1 & 0\\
+0 & 1 & 0 & 1\\
+0 & 0 & -1 & 0\\
+0 & 0 & 0 & 3
+\end{bmatrix}
+\]
+Então $W_1^\perp + W_2 = \langle(-1,1,1,0),(0,1,0,1),(0,0,1,0),(0,0,0,1)\rangle$ e sua dimensão é 4.
+
+\exercise*
+
+(a) Falso. Definindo o subespaço $U = \langle(1,0)\rangle$. Seu complemento ortogonal é $U^\perp = \langle(0,1)\rangle$. Se escolhermos o vetor $w = (1,1)$, $w$ não faz parte de nenhum dos dois subespaços. 
+
+(b) Verdadeiro. Assumindo que dois subespaços do $\R^n$ $\langle(1,0,0,...)\rangle$ e $\langle(0,1,0,...)\rangle$ são iguais por possuírem dimensão 1. No entanto, não representam o mesmo subespaço, pois vetores diferentes fazem parte de cada um. Por contradição, dois subespaços com a mesma dimensão não têm que ser iguais. Então é possível duas bases do $\R^n$ possuírem a mesma dimensão mas não serem o mesmo subespaço.
+
+(c) Falso. Usando os subespaços $W_1$ e $W_2$ definidos na questão 5. $\langle W_1 \bigcap W_2 \rangle = \langle(1,3,-2,4)\rangle$ e $\langle W_1 \rangle \bigcap \langle W_2 \rangle = \{\}$, pois não possuem vetores em comum nos geradores.
+
+\end{document}
