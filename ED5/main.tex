@@ -1,0 +1,300 @@
+\documentclass{homework}
+
+\title{Estudo Dirigido 5}
+\author{Carlos Bravo\\ 119136241}
+
+\begin{document}
+
+\maketitle
+
+\exercise
+(a) Realizando a operação nos vetores da base canônica obtemos:
+\[T(1,0,0) = (1,1,1,-4)\]
+\[T(0,1,0) = (-1,0,-9,-1)\]
+\[T(0,0,1) = (0,-7,0,1)\]
+Então a matriz correspondente é:
+\[\begin{bmatrix}
+1 & -1 & 0\\
+1 & 0 & -7\\
+1 & -9 & 0\\
+-4 & -1 & 1
+\end{bmatrix}\]
+
+(b) Dessas equações conseguimos tirar o seguinte:
+\[x = 2y = 2w\]
+\[z = 5w = 5y\]
+Como estamos no $\R^5$, um vetor que faz parte do plano deve possuir as coordenadas $(x,y,z,w,t)$. Substituindo pelas equações obtidas, um vetor no plano possui as coordenadas $(2y,y,5y,y,t)$. Então o gerador do plano é $\langle(2,1,5,1,0),(0,0,0,0,1)\rangle$. Encontrado o gerador do plano, podemos usar Gram-Schmidt para encontrar a base ortonormal:
+\[\langle\frac{1}{\sqrt{31}}(2,1,5,1,0),(0,0,0,0,1)\rangle\]
+Com a base ortonormal, é possível encontrar a matriz de projeção a partir de seus vetores transpostos:
+\[u_1u_1^\top + u_2u_2^\top =
+\begin{pmatrix}\frac{4}{31} & \frac{2}{31} & \frac{10}{31} & \frac{2}{31} & 0\\
+\frac{2}{31} & \frac{1}{31} & \frac{5}{31} & \frac{1}{31} & 0\\
+\frac{10}{31} & \frac{5}{31} & \frac{25}{31} & \frac{5}{31} & 0\\
+\frac{2}{31} & \frac{1}{31} & \frac{5}{31} & \frac{1}{31} & 0\\
+0 & 0 & 0 & 0 & 1\end{pmatrix}\]
+
+
+(c) Um vetor que faz parte do hiperplano possui o formato $(3y,y,z,w,t)$, então sua base é:
+\[\langle\frac{1}{\sqrt{10}}(3,1,0,0,0),(0,0,1,0,0),(0,0,0,1,0),(0,0,0,0,1)\rangle\]
+Primeiro encontrando um vetor ortogonal ao hiperplano. Esse vetor precisa ser ortogonal a todos os vetores de sua base, então seu produto interno com todos precisa ser 0. Um vetor possível é $(1,-3,0,0,0)$. Podemos aplicar esse vetor na seguinte fórmula:
+\[I - 2uu^\top = 
+\begin{pmatrix}-1 & 6 & 0 & 0 & 0\\
+6 & -17 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 1\end{pmatrix}\]
+
+\exercise*
+(a) Para o gerador da imagem, basta aplicar na base canônica:
+\[T(e_1) = (-4,0,4,4)\]
+\[T(e_2) = (-6,-4,2,2)\]
+\[T(e_3) = (-8,-4,4,4)\]
+\[T(e_4) = (7,3,-4,-4)\]
+Podemos simplificar o gerador escalonando:
+\[\begin{bmatrix}
+-4 & 0 & 4 & 4\\
+-6 & -4 & 2 & 2\\
+-8 & -4 & 4 & 4\\
+7 & 3 & -4 & -4
+\end{bmatrix} \xrightarrow{Escalonando}
+\begin{bmatrix}
+1 & 0 & -1 & -1\\
+0 & 1 & 1 & 1\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}\]
+Então a base da imagem é $\langle(1,0,-1,-1),(0,1,1,1)\rangle$ e sua dimensão é 2.
+Para encontrar o núcleo podemos igualar as equações a $0$:
+\[\begin{cases}
+-4x-6y-8z+7w=0\\
+-4y-4z+3w=0\\
+4x+2y+4z-4w=0\\
+4x+2y+4z-4w=0
+\end{cases}\]
+\[\begin{bmatrix}
+-4 & -6 & -8 & 7\\
+0 & -4 & -4 & 3\\
+4 & 2 & 4 & -4\\
+4 & 2 & 4 & -4
+\end{bmatrix} \xrightarrow{Escalonando}
+\begin{bmatrix}
+8 & 0 & 4 & -5\\
+0 & 4 & 4 & -3\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{bmatrix}\]
+Fazendo a substituição de variáveis, obtemos $x_3(-\frac{1}{2},-1,1,0) + x_4(\frac{5}{8},\frac{3}{4},0,1)$. Então o núcleo tem base $\langle(1,2,-2,0),(5,6,0,8)\rangle$ e dimensão 2.
+
+(b) Aplicando na base canônica:
+\[\begin{bmatrix}
+1 & 0 & 2\\
+-1 & 0 & -3\\
+0 & -1 & 1\\
+0 & 1 & 0
+\end{bmatrix} \xrightarrow{Escalonando}
+\begin{bmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1\\
+0 & 0 & 0
+\end{bmatrix}\]
+
+Então a imagem tem base $\langle(1,0,0),(0,1,0),(0,0,1)\rangle$ e dimensão 3. Agora aplicando o escalonamento para o núcleo:
+\[\begin{bmatrix}
+1 & -1 & 0 & 0\\
+0 & 0 & -1 & 1\\
+2 & -3 & 1 & 0
+\end{bmatrix} \xrightarrow{Escalonando}
+\begin{bmatrix}
+1 & 0 & 0 & -1\\
+0 & 1 & 0 & -1\\
+0 & 0 & 1 & -1\\
+0 & 0 & 0 & 0
+\end{bmatrix}\]
+Realizando a substituição de variáveis obtemos $x_4(1,1,1,1)$. Então a base do núcleo é $\langle(1,1,1,1)\rangle$ e sua dimensão é 1.
+
+\exercise*
+Um vetor multiplicado por $-1$ implica em 3 propriedades:
+\begin{itemize}
+    \item Seu módulo é igual
+    \item Sua direção é igual
+    \item Seu sentido é trocado
+\end{itemize}
+Se existir um operador linear que troque o sinal de um vetor, ele não deve modificar nem seu módulo nem sua direção, apenas seu sentido. 
+
+Olhando para o $\R^2$, se realizarmos uma rotação de 90 graus duas vezes seguidas, obtemos o resultado desejado, um vetor com mesmo módulo e mesma direção, mas sentido inverso. Subindo para o $\R^3$, podemos escolher qualquer plano paralelo ao vetor e realizar as rotações de 90 graus. Generalizando pro $\R^n$, basta sempre pegar um plano de 2 dimensões paralelo ao vetor e realizar essa operação de rotação de 90 graus no plano duas vezes.
+
+Então existe um operador tal que $T^2(v) = -v$, sendo $n\geq2$. No $\R^1$, no entanto, não é possível realizar a mesma estratégia. Como $n>0$ e provamos para $n\geq2$, então essa estratégia é válida para todos os números pares que $n$ pode assumir. $\blacksquare$
+
+\exercise*
+Primeiro, encontraremos as bases dos planos, sendo $\alpha$ o plano inicial e $\beta$ o plano final. Após isso, completaremos a base para o $\R^4$:
+\[w = z\]
+\[w = x\]
+\[\alpha' = \langle(1,0,1,1),(0,1,0,0)\rangle\]
+\[\alpha'' = \langle(1,0,1,1),(0,1,0,0),(0,0,1,0),(0,0,0,1)\rangle\]
+
+\[w = 2z\]
+\[x = 3y\]
+\[\beta' = \langle(3,1,0,0),(0,0,1,2)\rangle\]
+\[\beta'' = \langle(3,1,0,0),(0,0,1,2),(0,1,0,0),(0,0,1,0)\rangle\]
+
+Aplicando Gram-Schimdt em ambas para obter bases ortonormais:
+
+\[\alpha = \langle\frac{1}{\sqrt{3}}(1,0,1,1),(0,1,0,0),\frac{1}{\sqrt{6}}(1,0,-2,1),\frac{1}{\sqrt{2}}(1,0,0,-1)\rangle\]
+\[\beta = \langle\frac{1}{\sqrt{10}}(3,1,0,0),\frac{1}{\sqrt{5}}(0,0,1,2),\frac{1}{\sqrt{10}}(-1,3,0,0),\frac{1}{\sqrt{5}}(0,0,2,-1)\rangle\]
+
+Queremos o operador $(T)_\epsilon$. Para isso podemos usar a fórmula:
+\[(T)_\epsilon = (id)_{\beta\epsilon}(T)_{\alpha\beta}(id)_{\epsilon\alpha}\]
+Assim iremos transformar de $\epsilon$ em $\alpha$, realizar a mudança de base e transformar de $\beta$ de volta para $\epsilon$. $(id)_{\beta\epsilon}$ e $(id)_{\epsilon\alpha}$ obtemos facilmente, pois suas colunas são os vetores das bases:
+\[(id)_{\beta\epsilon} = 
+\begin{pmatrix}\frac{3}{\sqrt{10}} & 0 & -\frac{1}{\sqrt{10}} & 0\\
+\frac{1}{\sqrt{10}} & 0 & \frac{3}{\sqrt{10}} & 0\\
+0 & \frac{1}{\sqrt{5}} & 0 & \frac{2}{\sqrt{5}}\\
+0 & \frac{2}{\sqrt{5}} & 0 & -\frac{1}{\sqrt{5}}\end{pmatrix}\]
+\[(id)_{\epsilon\alpha} = (id)_{\alpha\epsilon}^\top = \begin{pmatrix}\frac{1}{\sqrt{3}} & 0 & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}}\\
+0 & 1 & 0 & 0\\
+\frac{1}{\sqrt{6}} & 0 & -\frac{2}{\sqrt{6}} & \frac{1}{\sqrt{6}}\\
+\frac{1}{\sqrt{2}} & 0 & 0 & -\frac{1}{\sqrt{2}}\end{pmatrix}\]
+Para a transformação de $\alpha$ para $\beta$, podemos usar o fato de ser uma transformação sobrejetiva. Todo vetor da imagem é representado por um vetor no plano original. Como ambos possuem a mesma dimensão, ou então o "mesmo número de vetores", cada vetor de $\alpha$ é associado a um vetor de $\beta$ de 1 para 1. Dessa forma, podemos associar $T(\alpha_k) = \beta_k, \forall k \in \R$, obtendo um sistema que forma a matriz identidade.
+\[(T)_\epsilon = \begin{pmatrix}\frac{3}{\sqrt{10}} & 0 & -\frac{1}{\sqrt{10}} & 0\\
+\frac{1}{\sqrt{10}} & 0 & \frac{3}{\sqrt{10}} & 0\\
+0 & \frac{1}{\sqrt{5}} & 0 & \frac{2}{\sqrt{5}}\\
+0 & \frac{2}{\sqrt{5}} & 0 & -\frac{1}{\sqrt{5}}\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\frac{1}{\sqrt{3}} & 0 & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}}\\
+0 & 1 & 0 & 0\\
+\frac{1}{\sqrt{6}} & 0 & -\frac{2}{\sqrt{6}} & \frac{1}{\sqrt{6}}\\
+\frac{1}{\sqrt{2}} & 0 & 0 & -\frac{1}{\sqrt{2}}\end{pmatrix}\]
+\[(T)_\epsilon = \begin{pmatrix}\frac{\sqrt{3}}{\sqrt{10}}-\frac{1}{\sqrt{6}\, \sqrt{10}} & 0 & \frac{2}{\sqrt{6}\, \sqrt{10}}+\frac{\sqrt{3}}{\sqrt{10}} & \frac{\sqrt{3}}{\sqrt{10}}-\frac{1}{\sqrt{6}\, \sqrt{10}}\\
+\frac{3}{\sqrt{6}\, \sqrt{10}}+\frac{1}{\sqrt{3}\, \sqrt{10}} & 0 & \frac{1}{\sqrt{3}\, \sqrt{10}}-\frac{\sqrt{6}}{\sqrt{10}} & \frac{3}{\sqrt{6}\, \sqrt{10}}+\frac{1}{\sqrt{3}\, \sqrt{10}}\\
+\frac{\sqrt{2}}{\sqrt{5}} & \frac{1}{\sqrt{5}} & 0 & -\frac{\sqrt{2}}{\sqrt{5}}\\
+-\frac{1}{\sqrt{2}\, \sqrt{5}} & \frac{2}{\sqrt{5}} & 0 & \frac{1}{\sqrt{2}\, \sqrt{5}}\end{pmatrix}\]
+
+\exercise*
+Para essa questão, podemos seguir um procedimento similar feito na (4). Como os planos são os mesmos, podemos copiar as bases ortonormais $\alpha$ e $\beta$ do exercício anterior. Seguiremos pela mesma fórmula. $(id)_{\beta\epsilon}$ e $(id)_{\epsilon\alpha}$ possuirão o mesmo valor, dado que as bases permanecem iguais. A diferença será na matriz de transformação entre as bases.
+
+Como o núcleo é formado por $\langle\frac{1}{\sqrt{3}}(1,0,1,1),(0,1,0,0)\rangle$ e os dois primeiros vetores de $\alpha$ são os mesmos, suas transformações darão $0$. E como a imagem é formada por $\langle(3,1,0,0),(0,0,1,2)\rangle$, podemos associar os outros vetores à imagem, dessa forma fazemos:
+\[T(\alpha_1) = 0\]
+\[T(\alpha_2) = 0\]
+\[T(\alpha_3) = \beta_1\]
+\[T(\alpha_4) = \beta_2\]
+\[(T)_{\alpha\beta} = 
+\begin{pmatrix}
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{pmatrix}\]
+
+Substituindo as matrizes na fórmula:
+\[\begin{pmatrix}\frac{3}{\sqrt{10}} & 0 & -\frac{1}{\sqrt{10}} & 0\\
+\frac{1}{\sqrt{10}} & 0 & \frac{3}{\sqrt{10}} & 0\\
+0 & \frac{1}{\sqrt{5}} & 0 & \frac{2}{\sqrt{5}}\\
+0 & \frac{2}{\sqrt{5}} & 0 & -\frac{1}{\sqrt{5}}\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{pmatrix}
+\begin{pmatrix}\frac{1}{\sqrt{3}} & 0 & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}}\\
+0 & 1 & 0 & 0\\
+\frac{1}{\sqrt{6}} & 0 & -\frac{2}{\sqrt{6}} & \frac{1}{\sqrt{6}}\\
+\frac{1}{\sqrt{2}} & 0 & 0 & -\frac{1}{\sqrt{2}}\end{pmatrix}\]
+
+\[(T)_\epsilon = \begin{pmatrix}\frac{3}{\sqrt{6}\, \sqrt{10}} & 0 & -\frac{\sqrt{6}}{\sqrt{10}} & \frac{3}{\sqrt{6}\, \sqrt{10}}\\
+\frac{1}{\sqrt{6}\, \sqrt{10}} & 0 & -\frac{2}{\sqrt{6}\, \sqrt{10}} & \frac{1}{\sqrt{6}\, \sqrt{10}}\\
+\frac{1}{\sqrt{2}\, \sqrt{5}} & 0 & 0 & -\frac{1}{\sqrt{2}\, \sqrt{5}}\\
+\frac{\sqrt{2}}{\sqrt{5}} & 0 & 0 & -\frac{\sqrt{2}}{\sqrt{5}}\end{pmatrix}\]
+
+\exercise*
+(a) Para encontrar a base do plano ortonormal primeiro devemos encontrar o complemento ortogonal de $l$. Podemos tirar a equação $x_1=-x_2-x_3$, então seu complemento ortogonal é $\langle(-1,1,0),(-1,0,1)\rangle$. Aplicando Gram-Schmidt para encontrar a base:
+\[\langle\frac{1}{\sqrt{2}}(-1,1,0),\frac{1}{\sqrt{6}}(-1,-1,2)\rangle\]
+
+(b) Usando a base de $U$ podemos encontrar a matriz de projeção:
+\[u_1u_1^\top + u_2u_2^\top = \begin{pmatrix}\frac{2}{3} & -\frac{1}{3} & -\frac{1}{3}\\
+-\frac{1}{3} & \frac{2}{3} & -\frac{1}{3}\\
+-\frac{1}{3} & -\frac{1}{3} & \frac{2}{3}\end{pmatrix}\]
+Projeção de $v_1$:
+\[\begin{bmatrix}
+\frac{2}{3} & -\frac{1}{3} & -\frac{1}{3}\\
+-\frac{1}{3} & \frac{2}{3} & -\frac{1}{3}\\
+-\frac{1}{3} & -\frac{1}{3} & \frac{2}{3}
+\end{bmatrix}
+\begin{bmatrix}
+1\\
+0\\
+0
+\end{bmatrix} = \frac{1}{3}\begin{bmatrix}
+2\\
+-1\\
+-1
+\end{bmatrix}\]
+Projeção de $v_2$:
+\[\frac{1}{3}\begin{bmatrix}
+\frac{2}{3} & -\frac{1}{3} & -\frac{1}{3}\\
+-\frac{1}{3} & \frac{2}{3} & -\frac{1}{3}\\
+-\frac{1}{3} & -\frac{1}{3} & \frac{2}{3}
+\end{bmatrix}
+\begin{bmatrix}
+2\\
+2\\
+-1
+\end{bmatrix} = \frac{1}{3}\begin{bmatrix}
+1\\
+1\\
+-2
+\end{bmatrix}\]
+
+(c) Para encontrar o ângulo entre os vetores tem que usar as propriedades de produto interno:
+\[cos(\theta) = \frac{\langle v_1|v_2\rangle}{\norm{v_1}\norm{v_2}} = \frac{2}{3}\]
+\[\theta = arccos\left(\frac{2}{3}\right)\]
+
+(d) O ângulo de rotação é o ângulo formado entre vetores perpendiculares ao eixo. Sabemos que $v_2$ é $v_1$ após sofrer a rotação, mas o ângulo entre eles não diz nada por não serem perpendiculares ao eixo. No entanto, se realizarmos suas projeções na base normal ao eixo, o ângulo formado entre eles será o ângulo da rotação.
+\[cos(\theta) = \frac{\langle Proj_U(v_1)|Proj_U(v_2)\rangle}{\norm{Proj_U(v_1)}\norm{Proj_U(v_2)}} = \frac{1}{2}\]
+\[\theta = arccos\left(\frac{1}{2}\right) = \frac{\pi}{3}\]
+
+(e) Primeiro, encontraremos a matriz $\rho$ em relação à base $U$. Ela é dada pela seguinte fórmula:
+\[\begin{bmatrix}
+1 & 0 & 0\\
+0 & cos(\theta) & -sen(\theta)\\
+0 & sen(\theta) & cos(\theta)
+\end{bmatrix} = \begin{bmatrix}
+1 & 0 & 0\\
+0 & \frac{1}{2} & -\frac{\sqrt{3}}{2}\\
+0 & \frac{\sqrt{3}}{2} & \frac{1}{2}
+\end{bmatrix}\]
+
+Com a matriz de rotação na base $U$, precisamos transformar para base canônica. O operador de mudança de base $(id)_{U\epsilon}$ é dado com suas colunas sendo o eixo normalizado e os vetores da base. Como a base é ortonormal, a inversa de sua matriz de mudança de base será sua transposta, então:
+\[(id)_{U\epsilon} = \begin{bmatrix}
+\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}}\\
+\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}}\\
+\frac{1}{\sqrt{3}} & 0 & \frac{2}{\sqrt{6}}
+\end{bmatrix}\]
+\[(id)_{\epsilon U} = \begin{bmatrix}
+\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}}\\
+-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{6}} & \frac{2}{\sqrt{6}}
+\end{bmatrix}\]
+Agora só multiplicar:
+\[(id)_{U\epsilon} \rho (id)_{\epsilon U} = \begin{pmatrix}-\frac{\frac{\sqrt{3}}{2 \sqrt{6}}-\frac{1}{{{2}^{\frac{3}{2}}}}}{\sqrt{2}}-\frac{-\frac{1}{2 \sqrt{6}}-\frac{\sqrt{3}}{{{2}^{\frac{3}{2}}}}}{\sqrt{6}}+\frac{1}{3} & -\frac{\frac{\sqrt{3}}{2 \sqrt{6}}+\frac{1}{{{2}^{\frac{3}{2}}}}}{\sqrt{2}}-\frac{\frac{\sqrt{3}}{{{2}^{\frac{3}{2}}}}-\frac{1}{2 \sqrt{6}}}{\sqrt{6}}+\frac{1}{3} & \frac{\sqrt{3}}{\sqrt{2}\, \sqrt{6}}+\frac{1}{6}\\
+\frac{\frac{\sqrt{3}}{2 \sqrt{6}}-\frac{1}{{{2}^{\frac{3}{2}}}}}{\sqrt{2}}-\frac{-\frac{1}{2 \sqrt{6}}-\frac{\sqrt{3}}{{{2}^{\frac{3}{2}}}}}{\sqrt{6}}+\frac{1}{3} & \frac{\frac{\sqrt{3}}{2 \sqrt{6}}+\frac{1}{{{2}^{\frac{3}{2}}}}}{\sqrt{2}}-\frac{\frac{\sqrt{3}}{{{2}^{\frac{3}{2}}}}-\frac{1}{2 \sqrt{6}}}{\sqrt{6}}+\frac{1}{3} & \frac{1}{6}-\frac{\sqrt{3}}{\sqrt{2}\, \sqrt{6}}\\
+\frac{2 \left( -\frac{1}{2 \sqrt{6}}-\frac{\sqrt{3}}{{{2}^{\frac{3}{2}}}}\right) }{\sqrt{6}}+\frac{1}{3} & \frac{2 \left( \frac{\sqrt{3}}{{{2}^{\frac{3}{2}}}}-\frac{1}{2 \sqrt{6}}\right) }{\sqrt{6}}+\frac{1}{3} & \frac{2}{3}\end{pmatrix}\]
+
+\exercise*
+(a) Verdadeiro. Se $T^2(v) = -v$, então $T^2(-v) = v$ e $T^4(v) = v = TTTTv$, em forma matricial. Podemos reescrever essa última equação como $T^3Tv = v$, o que implica que $T^3T = I$. Também podemos reescrever como $TT^3v = v$, o que implica em $TT^3 = I$. Como a multiplicação\, "pelos dois lados"\, resulta na identidade, o inverso de $T$ é $T^3$. $\blacksquare$
+
+(b) Falso. Se o operador é sobrejetivo, todo vetor de $\R^4$ pertence à imagem, o que significa que o núcleo é $\{0\}$. Pelo Teorema Núcleo Imagem, a dimensão inicial é igual à soma da dimensão da imagem somada à dimensão do núcleo. Substituindo os valores obtemos: 
+\[n = dim(Im(T)) + dim(N(T))\]
+\[3 = 4 + 0\]
+Como o teorema falhou, a afirmação é falsa. $\blacksquare$
+
+(c) Verdadeiro. Somar um vetor gerado pelo núcleo com um vetor gerado pela imagem é igual a realizar uma combinação linear de um gerador formado pelos dois geradores. Como o núcleo e a imagem de uma transformação não possuem elementos em comum, ao unir esses subsespaços, a dimensão formada será $n$, de acordo com o Teorema Núcleo Imagem.
+
+Uma base do $\R^n$ que possui dimensão $n$ representa o $\R^n$ inteiro. Como o gerador formado é também gerador do $\R^n$, qualquer vetor pode ser formado como soma de um vetor do núcleo com um da imagem. $\blacksquare$
+
+\end{document}
